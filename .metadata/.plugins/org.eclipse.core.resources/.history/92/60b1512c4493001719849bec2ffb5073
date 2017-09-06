@@ -1,0 +1,8 @@
+
+public class Dragon extends Mammal {
+
+	public Dragon() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

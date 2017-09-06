@@ -1,5 +1,6 @@
 
 public class Gorilla extends Mammal {
+
 	
 	// decreases energy by 5 and prints message that gorilla has thrown something
 	public void throwSomething() {

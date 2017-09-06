@@ -1,6 +1,6 @@
 
 public class Mammal {
-	private int energyLevel;
+	private int energyLevel = 100;
 
 	public int getEnergyLevel() {
 		return energyLevel;
@@ -15,7 +15,6 @@ public class Mammal {
 		return this.getEnergyLevel();
 	}
 	
-	public Mammal() {
-		this.setEnergyLevel(100);
-	}
+	
+	
 }
