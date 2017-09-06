@@ -4,3 +4,7 @@
 1504720537424	Encapsulate field 'value'
 1504720550331	Encapsulate field 'next'
 1504720610920	Encapsulate field 'head'
+1504731158419	Encapsulate field 'strength'
+1504731200277	Encapsulate field 'stealth'
+1504731206844	Encapsulate field 'intelligence'
+1504731399021	Encapsulate field 'health'
