@@ -1,10 +1,19 @@
 package ObjectMaster;
 
 public class Human {
+	
+	private String name;
 	private int strength;
 	private int stealth;
 	private int intelligence;
 	private int health;
+	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
 	
 	// strength 
 	public int getStrength() {
@@ -38,7 +47,8 @@ public class Human {
 		this.health = health;
 	}
 	
-	public Human() {
+	public Human(String newName) {
+		this.setName(newName);
 		this.setIntelligence(3);
 		this.setStrength(3);
 		this.setStealth(3);
