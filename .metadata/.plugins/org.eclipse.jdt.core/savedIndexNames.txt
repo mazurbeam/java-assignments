@@ -1,0 +1,4 @@
+INDEX VERSION 1.130+/Users/mazurbeam/Projects/spring/.metadata/.plugins/org.eclipse.jdt.core
+3494368592.index
+72390617.index
+996027661.index

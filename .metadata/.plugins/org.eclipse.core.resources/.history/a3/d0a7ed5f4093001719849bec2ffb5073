@@ -1,0 +1,8 @@
+
+public class Gorilla extends Mammal {
+
+	public Gorilla() {
+		// TODO Auto-generated constructor stub
+	}
+
+}
