@@ -10,11 +10,14 @@ public class HumanTest {
 		
 		System.out.println("testHuman2's health "+testHuman2.getHealth());
 		
-		Wizard newWiz = new Wizard("Merlin");
-		System.out.println(newWiz.getName());
-		System.out.println("Wizards stealth " +newWiz.getStealth());
-
-		System.out.println("Wizards health " +newWiz.getHealth());
-
+		Wizard wizardMerlin = new Wizard("Merlin");
+		System.out.println(wizardMerlin.getName());
+		System.out.println(wizardMerlin.getName()+"'s stealth " +wizardMerlin.getStealth());
+		
+		System.out.println("Wizards health " +wizardMerlin.getHealth());
+		
+		Samurai samuraiJack = new Samurai("Jack");
+		
+		System.out.println("Number of samurai: "+Samurai.getNumberOfSamurai());
 	}
 }
