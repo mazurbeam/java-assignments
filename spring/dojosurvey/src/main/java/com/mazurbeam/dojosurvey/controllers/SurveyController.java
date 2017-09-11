@@ -1,7 +1,6 @@
 package com.mazurbeam.dojosurvey.controllers;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -26,7 +25,11 @@ public class SurveyController {
 	public String processSurvey(@RequestParam(value="name") String name, @RequestParam(value="location") String location, @RequestParam(value="favoriteLanguage") String favoriteLanguage, @ModelAttribute("survey") Survey survey ) {
 		Survey newSurvey = new Survey(name, location, favoriteLanguage);
 		survey = newSurvey;
-		return "redirect:/results";
+		if(newSurvey.getFavoriteLanguage() == "java") {
+			return "redirect:/java";
+		} else {
+			return "redirect:/results";
+		}
 	}
 	
 	@RequestMapping("/results")
