@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aop-reference-model>
 <aop-project name="dojosurvey"/>
+<aop-project name="ninjagold"/>
+<aop-project name="grouplanguages"/>
 <aop-project name="DisplayDate"/>
 </aop-reference-model>

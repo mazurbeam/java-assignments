@@ -31,6 +31,6 @@
 
 <div id="activities" style="border: 1px solid black">
 	<% for(int i = 0; i<game.getActivitiesSize(); i++) { %>
-		<p><c:out value="${game.getActivity(i)}"/></p>
+		<p><%= game.getActivity %>></p>
 	<% } %>
 </div>

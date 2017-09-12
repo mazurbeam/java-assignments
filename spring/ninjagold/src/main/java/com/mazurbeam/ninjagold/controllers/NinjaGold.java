@@ -23,6 +23,14 @@ public class NinjaGold {
 		this.activities.add(activity);
 	}
 	
+	public String getActivity(int index) {
+		return this.activities.get(index);
+	}
+	
+	public int getActivitiesSize() {
+		return this.activities.size();
+	}
+	
 	public NinjaGold() {
 		this.setGold(0);
 	}
