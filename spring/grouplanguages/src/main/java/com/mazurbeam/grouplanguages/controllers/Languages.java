@@ -2,11 +2,15 @@ package com.mazurbeam.grouplanguages.controllers;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 
 import com.mazurbeam.grouplanguages.services.LanguageService;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.mazurbeam.grouplanguages.models.Language;
@@ -20,19 +24,22 @@ public class Languages {
 		this.languageService = languageService;
 	}
 	
-	@RequestMapping("/")
-	public String index(Model model) {
+	@RequestMapping("/languages")
+	public String index(Model model, @ModelAttribute("language") Language language) {
 		List<Language> languages = languageService.allLanguages();
 		model.addAttribute("languages", languages);
-		model.addAttribute("language", new Language());
+		//model.addAttribute("language", new Language());
 		return "index.jsp";
 	}
 	
-	@RequestMapping("/new")
-	public String newLanguage(@ModelAttribute("languages") Language lang) {
-		Language newLang; 
-		return "redirect:/";
-		
+	@PostMapping("/languages/new")
+	public String newLanguage(@Valid @ModelAttribute("language") Language language, BindingResult result) {
+		if(result.hasErrors()) {
+			return "index.jsp";
+		}else {
+			languageService.addLanguage(language);
+			return "redirect:/languages";
+		}
 	}
 	
 }

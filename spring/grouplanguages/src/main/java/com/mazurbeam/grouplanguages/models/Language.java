@@ -1,14 +1,16 @@
 package com.mazurbeam.grouplanguages.models;
 
+import javax.validation.constraints.Size;
+
+import org.springframework.beans.factory.annotation.Required;
+
 public class Language {
 	
 	@Size(min=2, max=20)
 	private String name;
-	
-	@Size(min=2,max=20)
+	@Size(min=2, max=20)	
 	private String creator;
-	
-	@Required
+		
 	private String version;
 	
 	public Language() {		

@@ -3,6 +3,11 @@
 
 
 <table>
+<tr>
+	<td>Name</td>
+	<td>Creator</td>
+	<td>Version</td>
+</tr>
 <c:forEach items="${languages}" var="language">
 	<tr>
 		<td><c:out value="${language.name}"/></td>
@@ -12,7 +17,7 @@
 </c:forEach>
 </table>
 
-<form:form method="POST" action="/new" modelAttribute="language">
+<form:form method="POST" action="/languages/new" modelAttribute="language">
 	<form:label path="name">Name
 	<form:errors path="name"/>
 	<form:input path="name"/></form:label>
@@ -23,7 +28,7 @@
 	
 	<form:label path="version">Version
 	<form:errors path="version"/>
-	<form:input type="number" path="version"/></form:label>
+	<form:input path="version"/></form:label>
 
 	<input type="submit" value="Submit"/>
 </form:form> 
