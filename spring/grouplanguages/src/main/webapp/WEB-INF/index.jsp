@@ -13,6 +13,7 @@
 		<td><c:out value="${language.name}"/></td>
 		<td><c:out value="${language.creator}"/></td>
 		<td><c:out value="${language.version}"/></td>
+		<td><a href="/languages/update/">Edit</a></td>
 	</tr>
 </c:forEach>
 </table>

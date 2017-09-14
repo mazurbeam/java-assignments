@@ -7,20 +7,26 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.mazurbeam.grouplanguages.models.Language;
+import com.mazurbeam.grouplanguages.respoitories.LanguageRepository;
 
 
 @Service
 public class LanguageService {
-	private List<Language> languages = new ArrayList<Language>(Arrays.asList(
-			new Language("python", "guido van rossum", "3.6"),
-			new Language("java","james gosling","1.8")
-			));
+	private LanguageRepository languageRepository;
 	
 	public List<Language> allLanguages(){
-		return languages;
+		return (List<Language>) languageRepository.findAll();
 	}
 	
 	public void addLanguage(Language newLang) {
-		this.languages.add(newLang);
+		languageRepository.save(newLang);
+	}
+	
+	public LanguageService(LanguageRepository languageRepository) {
+		this.languageRepository = languageRepository;
+	}
+	
+	public void destoryLanguage(Long id) {
+		languageRepository.delete(id);
 	}
 }
