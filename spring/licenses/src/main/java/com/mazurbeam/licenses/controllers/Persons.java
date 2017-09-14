@@ -29,7 +29,7 @@ public class Persons {
 	@PostMapping("/new")
 	public String createPerson(@Valid @ModelAttribute("person") Person person, BindingResult result) {
 		if(result.hasErrors()) {
-			return "newPerson.jsp";
+			return "newperson.jsp";
 		} else {
 			personService.addPerson(person);
 			return "redirect:/persons/new";

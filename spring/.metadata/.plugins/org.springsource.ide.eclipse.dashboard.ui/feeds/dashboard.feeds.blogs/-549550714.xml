@@ -5,7 +5,65 @@
   <link rel="self" href="https://spring.io/blog.atom" />
   <id>http://spring.io/blog.atom</id>
   <icon>https://spring.io/favicon.ico</icon>
-  <updated>2017-09-14T17:30:51Z</updated>
+  <updated>2017-09-14T20:43:03Z</updated>
+  <entry>
+    <title>Spring Cloud Stream Ditmars/1.3 Release Candidate Announcement</title>
+    <link rel="alternate" href="https://spring.io/blog/2017/09/14/spring-cloud-stream-ditmars-1-3-release-candidate-announcement" />
+    <category term="releases" label="Releases" />
+    <author>
+      <name>Gary Russell</name>
+    </author>
+    <id>tag:spring.io,2017-09-14:3028</id>
+    <updated>2017-09-14T20:43:03Z</updated>
+    <content type="html">&lt;div class="paragraph"&gt;
+&lt;p&gt;We are pleased to announce that the release candidate Spring Cloud Stream Ditmars.RC1 is available for use in the &lt;a href="http://repo.spring.io/libs-milestone/"&gt;Spring Milestone&lt;/a&gt; repository. The &lt;a href="https://github.com/spring-cloud/spring-cloud-stream-starters/releases/tag/vDitmars.RC1"&gt;release notes&lt;/a&gt; include relevant information about version compatibility with Spring Boot, Spring Cloud, Spring AMQP, and Spring for Apache Kafka.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="sect1"&gt;
+&lt;h2 id="kafka-streams-for-apache-kafka"&gt;&lt;a class="anchor" href="#kafka-streams-for-apache-kafka"&gt;&lt;/a&gt;Kafka Streams for Apache Kafka&lt;/h2&gt;
+&lt;div class="sectionbody"&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;This release targets the promotion of &lt;a href="https://docs.spring.io/spring-cloud-stream/docs/Ditmars.RC1/reference/htmlsingle/#_kafka_streams_binding_capabilities_of_spring_cloud_stream"&gt;Kafka Streams for Apache Kafka&lt;/a&gt; support as a top-level project in the Apache Kafka binder implementation. With Kafka Streams for Apache Kafka positioned as a first-class citizen, developers can now build Spring Cloud Stream applications by taking advantage of the Kafka Streams API at the binding level, so that it is much simpler to implement real-time data-processing business functions. The developers can focus on the functionality as opposed to the infrastructure and the messaging middleware configuration specifics, which Spring Cloud Stream tackles head-on by addressing it out-of-the-box. In addition to writing standard stream processing applications, Spring Cloud Stream binder for Kafka Streams enables developers to write applications that leverage on the interactive query features of Kafka Streams. Check out the &lt;a href="https://github.com/spring-cloud/spring-cloud-stream-samples/tree/master/kstream"&gt;samples&lt;/a&gt; for more details.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect1"&gt;
+&lt;h2 id="apache-kafka-0-11"&gt;&lt;a class="anchor" href="#apache-kafka-0-11"&gt;&lt;/a&gt;Apache Kafka 0.11&lt;/h2&gt;
+&lt;div class="sectionbody"&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;By popular demand from customers and the community, we are excited to also announce Apache Kafka 0.11 support for Spring Cloud Stream. Given the foundation projects (Spring for Apache Kafka and Spring Integration Kafka) are adding the 0.11 support more explicitly in their next major releases, the team made sure to make 0.11 available as a preview-release for Spring Cloud Stream by back porting it to a minor release. For that reason, there is a 0.11 branch that explicitly adds support for the Apache Kafka 0.11 release. For early adopters who are interested in upgrading to this release, we have released it as a &lt;a href="http://repo.spring.io/libs-milestone/org/springframework/cloud/spring-cloud-stream-binder-kafka11/1.3.0.RC1/"&gt;stand alone artifact&lt;/a&gt;. Similarly, there is an &lt;a href="http://repo.spring.io/libs-milestone/org/springframework/cloud/spring-cloud-stream-binder-kstream11/1.3.0.RC1/"&gt;artifact for the kstream binder for 0.11&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="admonitionblock note"&gt;
+&lt;table&gt;
+&lt;tr&gt;
+&lt;td class="icon"&gt;
+&lt;div class="title"&gt;Note&lt;/div&gt;
+&lt;/td&gt;
+&lt;td class="content"&gt;
+As a reminder, the Spring Cloud Stream 2.0 release of Apache Kafka binder implementation will default to Apache Kafka 0.11 and that will be the only version supported in this next major release. The older Apache Kafka versions will be supported in the 1.3.x release line of Spring Cloud Stream.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect1"&gt;
+&lt;h2 id="error-handling"&gt;&lt;a class="anchor" href="#error-handling"&gt;&lt;/a&gt;Error Handling&lt;/h2&gt;
+&lt;div class="sectionbody"&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Further improving the error handling support, we have simplified &lt;a href="https://docs.spring.io/spring-cloud-stream/docs/Ditmars.RC1/reference/htmlsingle/#binder-error-channels"&gt;producer- and consumer-level exception handling&lt;/a&gt;. The creation and orchestration of error channels and the global representation of the same have been reimplemented in this release train, too.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Apart from this, a variety of bug-fixes and improvements are part of the release. For more details, please refer to project level release markers in the &lt;a href="https://github.com/spring-cloud/spring-cloud-stream-starters/releases/tag/vDitmars.RC1"&gt;release notes&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;For next steps, we are planning to release the general availability of the Spring Cloud Stream Ditmars release train by the end of this month. As always, we welcome feedback and contributions, so please reach out to us on &lt;a href="https://stackoverflow.com/questions/tagged/spring-cloud-stream"&gt;Stackoverflow&lt;/a&gt; or &lt;a href="https://github.com/spring-cloud/spring-cloud-stream/"&gt;GitHub&lt;/a&gt; or via &lt;a href="https://gitter.im/spring-cloud/spring-cloud-stream"&gt;Gitter&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;See the &lt;a href="http://cloud.spring.io/spring-cloud-stream/"&gt;project page&lt;/a&gt; for more information.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;</content>
+  </entry>
   <entry>
     <title>Spring Integration 5.0 Milestone 7 and 4.3.12 Available</title>
     <link rel="alternate" href="https://spring.io/blog/2017/09/14/spring-integration-5-0-milestone-7-and-4-3-12-available" />
@@ -1215,19 +1273,5 @@ Feedback, feature requests and, of course, contributions are welcomed via the us
 &lt;div class="paragraph"&gt;
 &lt;p&gt;&lt;a href="http://projects.spring.io/spring-kafka/"&gt;Project Page&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-kafka/issues"&gt;Issues&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-kafka/blob/master/CONTRIBUTING.adoc"&gt;Contributing&lt;/a&gt; | &lt;a href="http://stackoverflow.com/questions/tagged/spring-kafka"&gt;Help&lt;/a&gt; | &lt;a href="https://gitter.im/spring-projects/spring-kafka"&gt;Chat&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;</content>
-  </entry>
-  <entry>
-    <title>Spring Cloud Task 2.0.0.M1 is now available</title>
-    <link rel="alternate" href="https://spring.io/blog/2017/08/17/spring-cloud-task-2-0-0-m1-is-now-available" />
-    <category term="releases" label="Releases" />
-    <author>
-      <name>Michael Minella</name>
-    </author>
-    <id>tag:spring.io,2017-08-17:3001</id>
-    <updated>2017-08-17T16:42:00Z</updated>
-    <content type="html">&lt;p&gt;We are pleased to announce that Spring Cloud Task 2.0.0.M1 is now available via Github and the Pivotal download repository. Many thanks to all of those who contributed to this release.&lt;/p&gt;
-&lt;p&gt;This release is the first release that is compatible with the Spring Boot 2.0 milestones (specifically Spring Boot 2.0.0.M3 for this release). With that upgrade, all dependencies are also upgraded (Spring Cloud Stream, Spring Batch, etc) as well as an upgrade of the baseline Java version to Java 8.&lt;/p&gt;&lt;h2&gt;&lt;a href="#what-do-you-think" class="anchor" name="what-do-you-think"&gt;&lt;/a&gt;What do you think?&lt;/h2&gt;
-&lt;p&gt;We look forward to your feedback on these new features in &lt;a href="https://github.com/spring-cloud/spring-cloud-task/issues"&gt;Github&lt;/a&gt;, &lt;a href="http://stackoverflow.com/tags/spring-cloud-task"&gt;StackOverflow&lt;/a&gt;, or to me directly via Twitter &lt;a href="https://twitter.com/michaelminella"&gt;@michaelminella&lt;/a&gt;!&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://cloud.spring.io/spring-cloud-task/"&gt;Spring Cloud Task Home&lt;/a&gt; | &lt;a href="https://github.com/spring-cloud/spring-cloud-task"&gt;Source on GitHub&lt;/a&gt; | &lt;a href="http://docs.spring.io/spring-cloud-task/docs/2.0.0.M1/reference/htmlsingle/"&gt;Reference Documentation&lt;/a&gt;&lt;/p&gt;</content>
   </entry>
 </feed>

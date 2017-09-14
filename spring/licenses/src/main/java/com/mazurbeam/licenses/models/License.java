@@ -19,7 +19,8 @@ public class License {
 	@GeneratedValue
 	private Long id;
 	private String number;
-    private Date expiration_date;
+	
+    private Date expirationDate;
     private String state;
     private Date createdAt;
     private Date updatedAt;
@@ -50,11 +51,11 @@ public class License {
 	public void setNumber(String number) {
 		this.number = number;
 	}
-	public Date getExpiration_date() {
-		return expiration_date;
+	public Date getExpirationDate() {
+		return expirationDate;
 	}
-	public void setExpiration_date(Date expiration_date) {
-		this.expiration_date = expiration_date;
+	public void setExpirationDate(Date expiration_date) {
+		this.expirationDate = expiration_date;
 	}
 	public String getState() {
 		return state;
