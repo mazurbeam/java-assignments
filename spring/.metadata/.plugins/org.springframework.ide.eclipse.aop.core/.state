@@ -3,7 +3,11 @@
 <aop-project name="licenses"/>
 <aop-project name="dojosurvey"/>
 <aop-project name="test"/>
+<aop-project name="overflow"/>
 <aop-project name="ninjagold"/>
 <aop-project name="grouplanguages"/>
 <aop-project name="DisplayDate"/>
+<aop-project name="login"/>
+<aop-project name="auth"/>
+<aop-project name="events"/>
 </aop-reference-model>
