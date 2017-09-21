@@ -15,5 +15,10 @@ public interface EventRepository extends CrudRepository<Event, Long>{
 	
 	@Query(value="SELECT * FROM events WHERE state_id=?1", nativeQuery=true)
 	List<Event> findAllEventsWithStateId(Long id);
-
+	
+	@Query(value="SELECT * FROM events WHERE state_id!=?1", nativeQuery=true)
+	List<Event> findAllEventsExceptStateId(Long id);
+	
+	@Query(value="SELECT * FROM events WHERE id=?1", nativeQuery=true)
+	Event getSingleEventWhereId(Long id);
 }

@@ -18,6 +18,7 @@ public class Message {
 	@Id
     @GeneratedValue
     private Long id;
+	private String comment;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="event_id")
@@ -28,10 +29,14 @@ public class Message {
 	private User user;
 	private Date createdAt;
     private Date updatedAt;
-
-	public Message(Long id, Event event, User user) {
+    
+    public Message() {
+    	
+    }
+	public Message(Long id, Event event, User user, String message) {
 		super();
 		this.id = id;
+		this.comment = message;
 		this.event = event;
 		this.user = user;
 	}
@@ -88,5 +93,13 @@ public class Message {
     protected void onUpdate(){
     		this.setUpdatedAt(new Date());
     }
+
+	
+	public String getComment() {
+		return comment;
+	}
+	public void setComment(String comment) {
+		this.comment = comment;
+	}
 	
 }

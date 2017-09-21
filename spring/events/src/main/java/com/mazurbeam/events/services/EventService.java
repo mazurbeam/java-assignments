@@ -27,5 +27,17 @@ public class EventService {
 	public List<Event> findAllEventsFromState(State state){
 		return eventRepository.findAllEventsWithStateId(state.getId());
 	}
+	
+	public List<Event> findAllEventsNotFromState(State state){
+		return eventRepository.findAllEventsExceptStateId(state.getId());
+	}
+	
+	public Event findEventWithId(Long id) {
+		return eventRepository.getSingleEventWhereId(id);
+	}
+	
+	public void updateEvent(Event event) {
+		eventRepository.save(event);
+	}
 }
 

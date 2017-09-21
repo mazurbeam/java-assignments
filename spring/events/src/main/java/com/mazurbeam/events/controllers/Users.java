@@ -17,9 +17,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.mazurbeam.events.models.Event;
+import com.mazurbeam.events.models.Message;
 import com.mazurbeam.events.models.State;
 import com.mazurbeam.events.models.User;
 import com.mazurbeam.events.services.EventService;
+import com.mazurbeam.events.services.MessageService;
 import com.mazurbeam.events.services.StateService;
 import com.mazurbeam.events.services.UserService;
 import com.mazurbeam.events.validator.UserValidator;
@@ -30,11 +32,13 @@ public class Users {
 	private UserService userService;
 	private StateService stateService;
 	private EventService eventService;
+	private MessageService messageService;
 	
 	private UserValidator userValidator;
-	
-	public Users(UserService userService, StateService stateService, EventService eventService, UserValidator userValidator) {
-	    this.userService = userService;
+	 
+	public Users(MessageService messageService,UserService userService, StateService stateService, EventService eventService, UserValidator userValidator) {
+	    this.messageService = messageService;
+		this.userService = userService;
 	    this.stateService = stateService;
 	    this.eventService = eventService;
 	    this.setUserValidator(userValidator);
@@ -67,12 +71,12 @@ public class Users {
     @RequestMapping(value = {"/", "/events"})
     public String home(@ModelAttribute("event") Event event, Principal principal, Model model) {
         // 1
-    	
         String username = principal.getName();
         User currentUser = userService.findByUsername(username);
         model.addAttribute("currentUser", currentUser);
 		model.addAttribute("states", stateService.allStates()); 
 		model.addAttribute("localEvents", eventService.findAllEventsFromState(currentUser.getState()));
+		model.addAttribute("events", eventService.findAllEventsNotFromState(currentUser.getState()));
         return "events.jsp";
     }
     
@@ -95,14 +99,38 @@ public class Users {
     }
     
     @RequestMapping("/events/{eventId}")
-    public String viewEvent(@PathVariable Long eventId) {
-    		
+    public String viewEvent(@PathVariable Long eventId, Model model, @ModelAttribute("message") Message message, Principal principal) {
+    		Event event = eventService.findEventWithId(eventId);
+    		model.addAttribute("event", event);
+    		model.addAttribute("joined", event.getUsers());
+    		model.addAttribute("currentUser", userService.findByUsername(principal.getName()));
+    		model.addAttribute("messages", messageService.getAllMessagesForEvent(event));
     		return "eventPage.jsp";
     }
     
     @RequestMapping("/events/{eventId}/edit")
     public String editEvent(@PathVariable Long eventId) {
     		return "editEvent.jsp";
+    }
+    
+    @RequestMapping("/events/{eventId}/join")
+    public String joinEvent(@PathVariable Long eventId, Model model, Principal principal){
+    		Event event = eventService.findEventWithId(eventId);
+    		User user = userService.findByUsername(principal.getName());
+    		System.out.println(event);
+    		System.out.println(user);
+    		event.addUser(user);
+    		eventService.saveEvent(event);
+    		return "redirect:/events/".concat(eventId.toString());
+    }
+    
+    @PostMapping("/newMessage/{eventId}")
+    public String newMessage(@PathVariable Long eventId, @ModelAttribute("message") Message message, Model model, BindingResult result, Principal principal) {
+    		User user = userService.findByUsername(principal.getName());
+    		message.setUser(user);
+    		message.setEvent(eventService.findEventWithId(eventId));
+    		messageService.saveMessageForEvent(message);
+    		return "redirect:/events/".concat(eventId.toString());
     }
 
 	public UserValidator getUserValidator() {

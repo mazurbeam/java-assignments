@@ -53,6 +53,14 @@ public class User {
     @OneToMany(mappedBy="user", fetch = FetchType.LAZY)
     private List<Event> events;
     
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(
+    		name="users_events",
+    		joinColumns = @JoinColumn(name="user_id"),
+    		inverseJoinColumns = @JoinColumn(name="event_id")
+    	)
+    private List<Event> joinedEvents;
+    
     public User() {
     		this.createdAt = new Date();
     		this.updatedAt = new Date();

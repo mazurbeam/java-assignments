@@ -14,7 +14,36 @@
 	<h1>Welcome <c:out value="${currentUser.firstName}"></c:out></h1>
 	
 	
-	<h4>Here are some of the events in your state:</h4>
+	<h4>Here are some of the events in your state (<c:out value="${currentUser.state.name}"/>):</h4>
+	<table>
+		<tr>
+			<td>Name</td>
+			<td>Date</td>
+			<td>Location</td>
+			<td>Host</td>
+			<td>Action/Status</td>
+		</tr>
+		<c:forEach items="${localEvents}" var="event">
+			<tr>
+				<td><a href="/events/${event.id}"><c:out value="${event.name}"/></a></td>
+				<td><c:out value="${event.date}"/></td>
+				<td><c:out value="${event.location}"/></td>		
+				<td><c:out value="${event.user.firstName}"/></td>
+				<td>
+					<c:if test="${event.user.id == currentUser.id }">
+						<a href="/events/${event.id}/edit">Edit</a>
+					</c:if>
+					<c:if test="${event.user.id != currentUser.id }">
+						<a href="/events/${event.id}/join">Join</a>
+					</c:if>
+				</td>
+			</tr>
+		
+		</c:forEach>
+	</table>
+	
+	
+	<h4>Here are some events in other States</h4>
 	<table>
 		<tr>
 			<td>Name</td>
@@ -24,7 +53,7 @@
 			<td>Host</td>
 			<td>Action/Status</td>
 		</tr>
-		<c:forEach items="${localEvents}" var="event">
+		<c:forEach items="${events}" var="event">
 			<tr>
 				<td><a href="/events/${event.id}"><c:out value="${event.name}"/></a></td>
 				<td><c:out value="${event.date}"/></td>
@@ -43,6 +72,7 @@
 		
 		</c:forEach>
 	</table>
+	
 	<p><form:errors path="event.*"/></p>
 	<form:form method="POST" action="/newEvent" modelAttribute="event">
 		<p>
@@ -66,4 +96,9 @@
         		<input type="submit" value="Add Event"/>
         </p>
 	</form:form>
+	
+	<form id="logoutForm" method="POST" action="/logout">
+        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+        <input type="submit" value="Logout!" />
+    </form>
 </body>
